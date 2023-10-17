@@ -17,6 +17,9 @@ import com.example.duanmau_sonpvph33179.dao.SachDAO;
 import com.example.duanmau_sonpvph33179.fragment.frg_qlls;
 import com.example.duanmau_sonpvph33179.fragment.frg_qlpm;
 import com.example.duanmau_sonpvph33179.fragment.frg_qltv;
+import com.example.duanmau_sonpvph33179.fragment.frg_sach;
+import com.example.duanmau_sonpvph33179.fragment.frg_thaymk;
+import com.example.duanmau_sonpvph33179.fragment.frg_thongke;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new frg_qltv();
                     replace(fragment);
 
+                }else  if(item.getItemId() == R.id.qlysach){
+
+                    fragment = new frg_sach();
+                    replace(fragment);
+                }else if(item.getItemId()==R.id.doiMk){
+                    fragment = new frg_thaymk();
+                    replace(fragment);
+
+                }else if(item.getItemId()==R.id.top10){
+                    fragment = new frg_thongke();
+                    replace(fragment);
                 }
 
                 return false;

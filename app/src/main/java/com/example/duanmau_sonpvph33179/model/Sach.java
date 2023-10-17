@@ -5,6 +5,21 @@ public class Sach {
     private String tensach;
     private float giathue;
     private int maloai;
+    private int soluong;
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public Sach(int masach, String tensach, int soluong) {
+        this.masach = masach;
+        this.tensach = tensach;
+        this.soluong = soluong;
+    }
 
     public Sach() {
     }
@@ -18,6 +33,12 @@ public class Sach {
 
     public int getMasach() {
         return masach;
+    }
+
+    public Sach(String tensach, float giathue, int maloai) {
+        this.tensach = tensach;
+        this.giathue = giathue;
+        this.maloai = maloai;
     }
 
     public void setMasach(int masach) {

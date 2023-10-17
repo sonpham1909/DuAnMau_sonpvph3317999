@@ -1,12 +1,18 @@
 package com.example.duanmau_sonpvph33179.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +52,39 @@ public class thanhvienadapter extends RecyclerView.Adapter<thanhvienadapter.View
         holder.txttentv.setText(list.get(position).getHoTen());
         holder.txtnamsinh.setText(list.get(position).getNamSinh());
         ThanhVien tv= list.get(position);
+        holder.imgedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                update(tv);
+            }
+        });
+        holder.imgdel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Cảnh báo");
+                builder.setMessage("Bạn có muốn xóa không?");
+                builder.setPositiveButton("có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                      if (dao.delete(tv.getMatv())){
+                          list.clear();
+                          list.addAll(dao.getDSTV());
+                          notifyDataSetChanged();
+                          Toast.makeText(context, "Đã xóa", Toast.LENGTH_SHORT).show();
+                      }
+                    }
+                });
+                builder.setNegativeButton("Khong", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog diaglog = builder.create();
+                diaglog.show();
+            }
+        });
 
 
 
@@ -70,8 +109,46 @@ public class thanhvienadapter extends RecyclerView.Adapter<thanhvienadapter.View
             txtnamsinh = itemView.findViewById(R.id.txtnamsinh);
 
             imgedit = itemView.findViewById(R.id.btnsuatv);
-            imgdel = itemView.findViewById(R.id.btnsuatv);
+            imgdel = itemView.findViewById(R.id.btndeltv);
 
         }
+    }
+
+    public void update(ThanhVien tv){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.ud_tv,null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+
+        EditText edtten = view.findViewById(R.id.edttentvu);
+        EditText edtns = view.findViewById(R.id.edtnamu);
+
+        Button btnsm = view.findViewById(R.id.btnsavetvu);
+
+
+        edtten.setText(tv.getHoTen());
+        edtns.setText(tv.getNamSinh());
+        btnsm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                tv.setHoTen(edtten.getText().toString());
+                tv.setNamSinh(edtns.getText().toString());
+                if(dao.update(tv)){
+                    list.clear();
+                    list.addAll(dao.getDSTV());
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Đã sửa", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+
+                }
+
+            }
+        });
+
+
+
     }
 }

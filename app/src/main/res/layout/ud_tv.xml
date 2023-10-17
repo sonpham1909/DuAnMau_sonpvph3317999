@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm thành viên"
+        android:text="Sửa thành viên"
         android:textSize="30sp"
         android:textColor="#F44336"
         android:textStyle="bold"
@@ -16,17 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập tên thành viên"
-        android:id="@+id/edttentv"
+        android:id="@+id/edttentvu"
         />
     />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập năm sinh"
-        android:id="@+id/edtnam"
+        android:id="@+id/edtnamu"
         />
     <Button
-        android:id="@+id/btnsavetv"
+        android:id="@+id/btnsavetvu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="save"

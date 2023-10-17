@@ -1,5 +1,7 @@
 package com.example.duanmau_sonpvph33179.fragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.duanmau_sonpvph33179.R;
 import com.example.duanmau_sonpvph33179.adapter.thanhvienadapter;
@@ -52,11 +57,53 @@ public class frg_qltv extends Fragment {
         adapter = new thanhvienadapter(getActivity(),list);
         rcv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        flt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                them();
+            }
+        });
 
 
 
 
 
         return view;
+    }
+
+    public void them(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        View view = getLayoutInflater().inflate(R.layout.them_thanhvien,null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+
+
+        EditText edttenThanhVien = view.findViewById(R.id.edttentv);
+        EditText editns = view.findViewById(R.id.edtnam);
+
+        Button btnsm = view.findViewById(R.id.btnsavetv);
+        btnsm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ten = edttenThanhVien.getText().toString();
+                String nam = editns.getText().toString();
+
+                tv = new ThanhVien(ten,nam);
+
+                if (dao.insert(tv)){
+
+                    list.clear();
+                    list.addAll(dao.getDSTV());
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(getActivity(), "Đã thêm", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            }
+        });
+
+
+
+
     }
 }

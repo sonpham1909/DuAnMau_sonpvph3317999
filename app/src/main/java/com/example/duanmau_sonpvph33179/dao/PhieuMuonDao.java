@@ -11,12 +11,15 @@ import android.util.Log;
 import com.example.duanmau_sonpvph33179.database.dbhelper;
 import com.example.duanmau_sonpvph33179.model.PhieuMuon;
 import com.example.duanmau_sonpvph33179.model.Sach;
+import com.example.duanmau_sonpvph33179.model.Top;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhieuMuonDao {
 
     dbhelper dbhelper;
+    private Context context;
     public  PhieuMuonDao(Context context){
         dbhelper = new dbhelper(context);
     }
@@ -83,6 +86,8 @@ public class PhieuMuonDao {
 
 
     }
+
+
 
 
 }

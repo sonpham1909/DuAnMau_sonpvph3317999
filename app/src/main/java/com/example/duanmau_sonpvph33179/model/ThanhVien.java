@@ -14,6 +14,11 @@ public class ThanhVien {
         this.namSinh = namSinh;
     }
 
+    public ThanhVien(String hoTen, String namSinh) {
+        this.hoTen = hoTen;
+        this.namSinh = namSinh;
+    }
+
     public int getMatv() {
         return matv;
     }

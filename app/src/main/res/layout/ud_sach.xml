@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".DangNhap">
+    android:gravity="center"
+    android:layout_height="match_parent">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng Nhập"
-        android:textColor="#F44336"
+        android:text="Sửa sách"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:textColor="@color/black"
         />
     <EditText
-        android:id="@+id/edtusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập username"
+        android:hint="Nhập tên sách"
+        android:id="@+id/edtudten"
         />
     <EditText
-        android:id="@+id/edtpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:password="true"
-        android:hint="Nhập password"
-
-        tools:ignore="Deprecated" />
-    <CheckBox
-        android:layout_width="wrap_content"
+        android:hint="Nhập giá thuê"
+        android:id="@+id/edtudgiathue"
+        />
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ghi nhớ mật khẩu?"
-        android:id="@+id/remember"/>
+        android:hint="Nhập mã loại"
+        android:id="@+id/edtudmaloai"
+        />
     <Button
-        android:id="@+id/btnlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng Nhập"
+        android:text="submit"
+        android:id="@+id/btnsubmid"
         />
+
 
 
 

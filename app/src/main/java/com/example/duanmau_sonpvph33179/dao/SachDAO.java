@@ -45,7 +45,7 @@ public class SachDAO {
     public boolean insert(Sach s){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("masach",s.getMasach());
+
         values.put("tensach",s.getTensach());
         values.put("giathue",s.getGiathue());
         values.put("maloai",s.getMaloai());
@@ -59,7 +59,7 @@ public class SachDAO {
     public  boolean update (Sach s){
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("masach",s.getMasach());
+
         values.put("tensach",s.getTensach());
         values.put("giathue",s.getGiathue());
         values.put("maloai",s.getMaloai());
