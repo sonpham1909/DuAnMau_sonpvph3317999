@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class dbhelper extends SQLiteOpenHelper {
 
     public dbhelper(@Nullable Context context) {
-        super(context, "DANGKYMONHOC", null, 4);
+        super(context, "DANGKYMONHOC", null, 5);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class dbhelper extends SQLiteOpenHelper {
         //data mẫu
 
         sqLiteDatabase.execSQL("insert into loaisach values(1,'Sách thiếu nhi'),(2,'Sách tình cảm'),(3,'Sách giáo khoa')");
-        sqLiteDatabase.execSQL("insert into sach values(1,'Hãy đợi đấy',2500,1),(2,'Thằng cuội',1000,1),(3,'Lập trình Android',2000,3)");
+        sqLiteDatabase.execSQL("insert into sach values(1,'Hãy đợi đấy',2500,1),(2,'Thằng cuội',1000,1),(3,'Lập trình Android',2000,3),(4,'Con co',34234,2),(5,'ngon tinh',34234,2)");
         sqLiteDatabase.execSQL("insert into thuthu values('thuthu01','Nguyễn Văn An','abc123'),('thuthu02','Phạm Văn B','abc124')");
         sqLiteDatabase.execSQL("insert into thanhvien values(1,'Phạm Thị Linh','2004'),(2,'Nguyễn Văn An','2003')");
         sqLiteDatabase.execSQL("insert into phieumuon values(1,1,'thuthu01',1,'2023/09/29',1,30000.0)");

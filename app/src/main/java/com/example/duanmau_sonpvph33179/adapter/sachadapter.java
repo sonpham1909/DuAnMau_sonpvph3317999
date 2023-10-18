@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,18 +18,33 @@ import com.example.duanmau_sonpvph33179.dao.SachDAO;
 import com.example.duanmau_sonpvph33179.model.Sach;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class sachadapter extends RecyclerView.Adapter<sachadapter.Viewholder>{
+public class sachadapter extends RecyclerView.Adapter<sachadapter.Viewholder> {
 
-    private final Context context;
-    private final ArrayList<Sach> list;
+    private Context context;
+    private  ArrayList<Sach> list;
+
+
+
     SachDAO dao;
 
-    public sachadapter(Context context, ArrayList<Sach> list) {
+    public sachadapter(Context context, ArrayList<Sach> list ){
         this.context = context;
         this.list = list;
         dao=new SachDAO(context);
+
     }
+    public void setFilteredList(ArrayList<Sach> lists){
+        this.list = lists;
+        notifyDataSetChanged();
+    }
+
+
+//    public void setFilteredListNull(ArrayList listnull){
+//        this.listnull =listnull
+//        notifyDataSetChanged();
+//    }
 
     @NonNull
     @Override
@@ -78,4 +95,7 @@ public class sachadapter extends RecyclerView.Adapter<sachadapter.Viewholder>{
 
         }
     }
+
+
+
 }
